@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+service GrpcExampleService {
+
+  rpc GetFile (FileRequest) returns (stream fileChunk) {}
+
+  rpc loadFile (stream fileChunk) returns (loadFileResponse) {}
+
+}
+
+message ResponseError {
+  string error_message = 1;
+}
+
+message FileRequest {
+  string file_Name = 1;
+}
+
+message fileChunk {
+  bytes file_content = 1;
+}
+
+message loadFileResponse {
+  string filename = 1;
+}
