@@ -1,5 +1,5 @@
 from fastapi import FastAPI, UploadFile
-import grpc_handle as gh
+import grpc_client as gh
 
 app = FastAPI()
 

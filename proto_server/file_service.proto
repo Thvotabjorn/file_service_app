@@ -6,7 +6,8 @@ service FileService {
 }
 
 message FileChunk {
-  bytes content = 1;
+  string filename = 1;
+  bytes content = 2;
 }
 
 message UploadResponse {
