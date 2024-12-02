@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12\x66ile_service.proto\"\x1c\n\tFileChunk\x12\x0f\n\x07\x63ontent\x18\x01 \x01(\x0c\"!\n\x0eUploadResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"#\n\x0f\x44ownloadRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t2j\n\x0b\x46ileService\x12+\n\nUploadFile\x12\n.FileChunk\x1a\x0f.UploadResponse(\x01\x12.\n\x0c\x44ownloadFile\x12\x10.DownloadRequest\x1a\n.FileChunk0\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12\x66ile_service.proto\".\n\tFileChunk\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t\x12\x0f\n\x07\x63ontent\x18\x02 \x01(\x0c\"!\n\x0eUploadResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"#\n\x0f\x44ownloadRequest\x12\x10\n\x08\x66ilename\x18\x01 \x01(\t2j\n\x0b\x46ileService\x12+\n\nUploadFile\x12\n.FileChunk\x1a\x0f.UploadResponse(\x01\x12.\n\x0c\x44ownloadFile\x12\x10.DownloadRequest\x1a\n.FileChunk0\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,11 +32,11 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'file_service_pb2', _globals
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_FILECHUNK']._serialized_start=22
-  _globals['_FILECHUNK']._serialized_end=50
-  _globals['_UPLOADRESPONSE']._serialized_start=52
-  _globals['_UPLOADRESPONSE']._serialized_end=85
-  _globals['_DOWNLOADREQUEST']._serialized_start=87
-  _globals['_DOWNLOADREQUEST']._serialized_end=122
-  _globals['_FILESERVICE']._serialized_start=124
-  _globals['_FILESERVICE']._serialized_end=230
+  _globals['_FILECHUNK']._serialized_end=68
+  _globals['_UPLOADRESPONSE']._serialized_start=70
+  _globals['_UPLOADRESPONSE']._serialized_end=103
+  _globals['_DOWNLOADREQUEST']._serialized_start=105
+  _globals['_DOWNLOADREQUEST']._serialized_end=140
+  _globals['_FILESERVICE']._serialized_start=142
+  _globals['_FILESERVICE']._serialized_end=248
 # @@protoc_insertion_point(module_scope)
