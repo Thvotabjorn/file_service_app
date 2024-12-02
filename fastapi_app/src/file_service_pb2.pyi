@@ -5,10 +5,12 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class FileChunk(_message.Message):
-    __slots__ = ("content",)
+    __slots__ = ("filename", "content")
+    FILENAME_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
+    filename: str
     content: bytes
-    def __init__(self, content: _Optional[bytes] = ...) -> None: ...
+    def __init__(self, filename: _Optional[str] = ..., content: _Optional[bytes] = ...) -> None: ...
 
 class UploadResponse(_message.Message):
     __slots__ = ("message",)
