@@ -2,12 +2,10 @@ import asyncio
 from concurrent.futures import ThreadPoolExecutor
 import logging
 import sys
-from multiprocessing.pool import ThreadPool
 
 from fastapi import UploadFile
 from functools import partial
 import grpc
-from starlette.responses import JSONResponse
 
 import file_service_pb2_grpc as grpc_service
 import file_service_pb2 as grpc_messages
@@ -25,21 +23,6 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger(__name__)
-
-async def grpc_file_client():
-    channel = grpc.aio.insecure_channel(f'{settings.grpc_host}:{settings.grpc_port}')
-    client = grpc_service.FileServiceStub(channel)
-    return client
-
-
-async def parse_message(message):
-    parsed_message = message
-    return parsed_message
-
-
-async def get_file(message):
-    return JSONResponse(await parse_message(message))
-
 
 async def run_sync_in_async(sync_func, *args, **kwargs):
     """Обертка для запуска синхронных функций в асинхронном контексте"""
@@ -109,17 +92,10 @@ async def get_file_from_service(filename: str):
             ]
         ) as channel:
             stub = grpc_service.FileServiceStub(channel)
-            # loop = asyncio.get_running_loop()
-            # asyncio.set_event_loop(loop)
             response = await run_sync_in_async(
                 stub.DownloadFile,
                 grpc_messages.DownloadRequest(filename=filename)
             )
-            # response = await loop.run_in_executor(
-            #     None,
-            #     partial(stub.DownloadFile,grpc_messages.DownloadRequest(filename=filename))
-            # )
-            # response = await stub.DownloadFile(grpc_messages.DownloadRequest(filename=filename))
             
             chunks = []
             bytes_received = 0
